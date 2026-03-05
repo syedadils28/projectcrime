@@ -36,10 +36,16 @@
           User Login
         </button>
         <button class="selector-btn" id="btn-other"
-          onclick="window.location.href = 'official_login.php'"
+          onclick="window.location.href = 'police_login.php'"
         >
           <i class="bx bxs-building-house"></i>
-          Official Login
+          police Login
+        </button>
+        <button class="selector-btn" id="btn-other"
+          onclick="window.location.href = 'admin_login.php'"
+        >
+          <i class="bx bxs-building-house"></i>
+          admin Login
         </button>
       </div>
 
@@ -62,13 +68,13 @@
               <a href="#">Forgot Password?</a>
             </div>
             <button type="submit" class="btn">Login</button>
-            <p>or login with social platforms</p>
+            <!-- <p>or login with social platforms</p>
             <div class="social-icons">
               <a href="#"><i class="bx bxl-google"></i></a>
               <a href="#"><i class="bx bxl-facebook"></i></a>
               <a href="#"><i class="bx bxl-github"></i></a>
               <a href="#"><i class="bx bxl-linkedin"></i></a>
-            </div>
+            </div> -->
           </form>
         </div>
 
@@ -87,18 +93,31 @@
               <input type="email" placeholder="Email" required />
               <i class="bx bxs-envelope"></i>
             </div>
+            
+            <div class="input-box">
+              <input type="text" placeholder="Phone Number" required />
+              <i class="bx bxs-phone"></i>
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Aadhaar Number" required />
+              <i class="bx bxs-id-card"></i>
+            </div>
             <div class="input-box">
               <input type="password" placeholder="Password" required />
               <i class="bx bxs-lock-alt"></i>
             </div>
+            <div class="input-box">
+              <input type="password" placeholder="Confirm Password" required />
+              <i class="bx bxs-lock-alt"></i>
+            </div>
             <button type="submit" class="btn">Register</button>
-            <p>or register with social platforms</p>
+            <!-- <p>or register with social platforms</p>
             <div class="social-icons">
               <a href="#"><i class="bx bxl-google"></i></a>
               <a href="#"><i class="bx bxl-facebook"></i></a>
               <a href="#"><i class="bx bxl-github"></i></a>
               <a href="#"><i class="bx bxl-linkedin"></i></a>
-            </div>
+            </div> -->
           </form>
         </div>
 
