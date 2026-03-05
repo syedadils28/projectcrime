@@ -34,7 +34,7 @@
             <div class="secondary-shape"></div>
             <div class="credentials-panel signin">
                 <span class="login-type-badge" id="loginBadge">Official Login</span>
-                <h2 class="slide-element">Login</h2>
+                <h2 class="slide-element">police Login</h2>
                 <form action="#">
                     <div class="field-wrapper slide-element">
                         <input type="text" required>
@@ -53,13 +53,13 @@
                     </div>
 
                     <div class="switch-link slide-element">
-                        <p>Don't have an account? <br> <a href="#" class="register-trigger">Sign Up</a></p>
+                        <p>click to admin <br> <a href="#" class="register-trigger">admin login</a></p>
                     </div>
                 </form>
             </div>
 
             <div class="welcome-section signin">
-                <h2 class="slide-element">WELCOME BACK!</h2>
+                <h2 class="slide-element">WELCOME to police login</h2>
                 <!-- <button class="slide-element submit-button" onclick="window.location.href = 'index.php'">Go to User Login</button> -->
             </div>
 
