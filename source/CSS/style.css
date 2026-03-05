@@ -149,6 +149,7 @@ section{
     display: none;
 }
 
+
 .navbar{
     position: relative;
 }
@@ -163,6 +164,40 @@ section{
 
 .navbar a:hover, .navbar a.active{
     color: var(--main-color);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background: #112e42;
+    min-width: 180px;
+    border-radius: 8px;
+    top: 40px;
+    right: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background: #00abf0;
+}
+
+.show {
+    display: block;
 }
 
 /*================================ home section ================================*/

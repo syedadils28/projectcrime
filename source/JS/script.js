@@ -19,6 +19,7 @@ var typed = new Typed(".multiple-text", {
 });
 
 
+
 /*==================== Portfolio Filtering ====================*/
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize Isotope

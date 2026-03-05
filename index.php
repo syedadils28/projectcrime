@@ -73,8 +73,7 @@
         <a href="#portfolio"><i class='bx bxs-award icon'></i> Gallery</a>
         <a href="#team"><i class='bx bxs-group icon'></i> Team</a>
         <a href="#contact"><i class='bx bx-envelope icon'></i> Contact</a>
-        <a href="report/index.php"> <i class='bx bx-log-in icon'></i> login</a>
-
+        <a href="reports/index.php"> <i class='bx bx-log-in icon'></i> login</a>   
         <span class="active-nav"></span>
       </nav>
     </header>
