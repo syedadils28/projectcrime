@@ -32,6 +32,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 </head>
 <body>
 <div class="auth-page">
+  <a href="../index.php" style="position:absolute;top:15px;left:15px;color:#2196F3;font-size:22px;"><i class="fas fa-home"></i></a>
   <div class="auth-card">
     <div class="auth-title-bar">
       <span>Admin Login</span>
