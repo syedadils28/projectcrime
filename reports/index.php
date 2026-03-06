@@ -60,7 +60,7 @@ body{ margin:0; font-family:'Roboto',sans-serif; }
     <a href="user/signin.php">User</a>
     <a href="police/login.php">Police</a>
   </div>
-  <p style="margin-top:14px;font-size:12px;">&copy; <?php echo date('Y'); ?> Crime Record Management System | Developed by PHPGurukul</p>
+  <p style="margin-top:14px;font-size:12px;">&copy; <?php echo date('Y'); ?> Crime Record Management System</p>
 </div>
 
 </body>
