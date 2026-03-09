@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 <div class="auth-page" style="background:#f0f2f5;">
   <a href="../index.php" style="position:absolute;top:15px;left:15px;color:#2196F3;font-size:22px;"><i class="fas fa-home"></i></a>
 
-  <div class="auth-card" style="width:380px;">
+  <div class="auth-card" style="width:680px;height:700px;max-width:60%;">
     <div class="auth-title-bar" style="background:#2196F3;">
       <span></span>
       <button class="tab-btn">&#9650; SIGN IN</button>
@@ -61,7 +61,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     </div>
     <div class="auth-divider">OR</div>
     <div class="auth-footer">
-      Not Registered Yet? <a href="signup.php">Sign up!</a>
+      Not Registered Yet? 
+      <button ><a href="signup.php" class="btn-signup"><i class="fas fa-user-plus"></i> Sign up!</a></button>
     </div>
   </div>
 </div>

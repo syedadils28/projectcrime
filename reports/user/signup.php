@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 <div class="auth-page" style="background:#f0f2f5;">
   <a href="../index.php" style="position:absolute;top:15px;left:15px;color:#2196F3;font-size:22px;"><i class="fas fa-home"></i></a>
 
-  <div class="auth-card" style="width:400px;">
+  <div class="auth-card" style="width:680px;height:900px;max-width:60%;">
     <div class="auth-title-bar" style="background:#2196F3;">
       <span></span>
       <button class="tab-btn">&#9650; SIGN UP</button>
