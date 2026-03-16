@@ -63,9 +63,14 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
           <input type="text" name="mobile" class="auth-input" placeholder="Mobile" required maxlength="15">
         </div>
         <div style="margin-bottom:16px;">
-          <label class="auth-label">Mobile Number</label>
+          <label class="auth-label">Password</label>
           <input type="password" name="password" class="auth-input" placeholder="Password" required>
         </div>
+        <!-- conform password -->
+          <div style="margin-bottom:16px;">
+            <label class="auth-label">Confirm Password</label>
+            <input type="password" name="confirm_password" class="auth-input" placeholder="Confirm Password" required>
+          </div>
         <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:9px;">Sign Up</button>
       </form>
     </div>
