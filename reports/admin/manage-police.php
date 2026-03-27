@@ -28,7 +28,7 @@ include '../includes/admin-header.php';
 ?>
 
 <?php if(isset($_GET['msg'])): ?>
-<div class="alert alert-success"><i class="fas fa-check-circle"></i> Record <?php echo $_GET['msg']; ?> successfully!</div>
+<div class="alert alert-success"><i class="fas fa-check-circle"></i> Record <?php echo htmlspecialchars($_GET['msg']); ?> successfully!</div>
 <?php endif; ?>
 
 <div class="card">
@@ -61,7 +61,16 @@ include '../includes/admin-header.php';
             <td><?php echo htmlspecialchars($row['MobileNumber']); ?></td>
             <td><?php echo htmlspecialchars($row['Email']); ?></td>
             <td>
-              <button class="btn btn-sm btn-edit" onclick="openEdit(<?php echo $row['id']; ?>,'<?php echo addslashes($row['Name']); ?>','<?php echo addslashes($row['Email']); ?>','<?php echo addslashes($row['MobileNumber']); ?>','<?php echo addslashes($row['Address']); ?>',<?php echo $row['Status']; ?>)">Edit</button>
+              <!-- FIX: Use data-* attributes instead of inline JS arguments -->
+              <!-- This prevents breakage when Name/Address contain quotes or special chars -->
+              <button class="btn btn-sm btn-edit"
+                data-id="<?php echo $row['id']; ?>"
+                data-name="<?php echo htmlspecialchars($row['Name'], ENT_QUOTES); ?>"
+                data-email="<?php echo htmlspecialchars($row['Email'], ENT_QUOTES); ?>"
+                data-mobile="<?php echo htmlspecialchars($row['MobileNumber'], ENT_QUOTES); ?>"
+                data-address="<?php echo htmlspecialchars($row['Address'], ENT_QUOTES); ?>"
+                data-status="<?php echo (int)$row['Status']; ?>"
+                onclick="openEdit(this)">Edit</button>
               <a href="manage-police.php?del=<?php echo $row['id']; ?>" class="btn btn-sm btn-delete" onclick="return confirm('Delete?')">Delete</a>
             </td>
           </tr>
@@ -97,13 +106,13 @@ include '../includes/admin-header.php';
         <label class="form-label">Address <span class="req">*</span></label>
         <textarea name="address" id="eaddress" class="form-control" required></textarea>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label class="form-label">Status</label>
         <select name="status" id="estatus" class="form-control">
           <option value="1">Active</option>
           <option value="0">Inactive</option>
         </select>
-      </div>
+      </div> -->
       <button type="submit" class="btn btn-primary">Update</button>
       <button type="button" onclick="closeEdit()" class="btn btn-secondary" style="margin-left:8px;">Cancel</button>
     </form>
@@ -111,16 +120,20 @@ include '../includes/admin-header.php';
 </div>
 
 <script>
-function openEdit(id,name,email,mobile,address,status){
-  document.getElementById('editid').value=id;
-  document.getElementById('ename').value=name;
-  document.getElementById('eemail').value=email;
-  document.getElementById('emobile').value=mobile;
-  document.getElementById('eaddress').value=address;
-  document.getElementById('estatus').value=status;
-  document.getElementById('editModal').style.display='flex';
+// FIX: Accept the button element itself, read values from data-* attributes
+// dataset automatically decodes HTML entities, so special chars work perfectly
+function openEdit(btn) {
+  document.getElementById('editid').value   = btn.dataset.id;
+  document.getElementById('ename').value    = btn.dataset.name;
+  document.getElementById('eemail').value   = btn.dataset.email;
+  document.getElementById('emobile').value  = btn.dataset.mobile;
+  document.getElementById('eaddress').value = btn.dataset.address;
+  document.getElementById('editModal').style.display = 'flex';
 }
-function closeEdit(){ document.getElementById('editModal').style.display='none'; }
+
+function closeEdit() {
+  document.getElementById('editModal').style.display = 'none';
+}
 </script>
 
 <?php include '../includes/admin-footer.php'; ?>

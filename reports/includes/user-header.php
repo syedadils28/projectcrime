@@ -57,6 +57,11 @@ $user_email = $_SESSION['user_email'] ?? '';
       </a>
     </li>
     <li>
+      <a href="<?php echo $base_url??'../';?>user/all_news.php" class="<?php echo basename($_SERVER['PHP_SELF'])=='all_news.php'?'active':''; ?>">
+        <i class="fas fa-file-alt"></i> Daily News
+      </a>
+    </li>
+    <li>
       <a href="<?php echo $base_url??'../';?>user/fir-form.php" class="<?php echo basename($_SERVER['PHP_SELF'])=='fir-form.php'?'active':''; ?>">
         <i class="fas fa-file-alt"></i> FIR Form
       </a>
