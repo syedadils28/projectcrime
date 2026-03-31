@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2026 at 04:50 AM
+-- Generation Time: Mar 31, 2026 at 08:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,61 @@ SET time_zone = "+00:00";
 --
 -- Database: `crms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `daily_news`
+--
+
+CREATE TABLE `daily_news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `category` enum('Crime Alert','Missing Person','General Notice','Wanted Criminal','Safety Tip','Station Update') NOT NULL DEFAULT 'General Notice',
+  `image` varchar(255) DEFAULT NULL,
+  `posted_by_id` int(11) NOT NULL,
+  `posted_by_role` enum('admin','police') NOT NULL,
+  `posted_by_name` varchar(100) NOT NULL,
+  `station_name` varchar(150) DEFAULT NULL,
+  `is_urgent` tinyint(1) DEFAULT 0,
+  `is_active` tinyint(1) DEFAULT 1,
+  `views` int(11) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `category` enum('General','Crime Alert','Missing Person','Notice','Update') DEFAULT 'General',
+  `posted_by` int(11) NOT NULL,
+  `posted_by_role` enum('admin','police') NOT NULL,
+  `posted_by_name` varchar(100) NOT NULL,
+  `station_id` int(11) DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT 1,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `content`, `image`, `category`, `posted_by`, `posted_by_role`, `posted_by_name`, `station_id`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'cri', 'sSSSSSaaaaaaaaaaaaaaaaaaaaa', '1774624192_bgimg.jpg', 'General', 5, 'police', 'ram', 1, 1, '2026-03-27 20:39:52', '2026-03-27 21:46:06'),
+(3, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'ssssssssssssssssssssssssssss', '1774628260_home.jpg', 'Missing Person', 1, 'admin', 'Admin', NULL, 1, '2026-03-27 21:47:40', '2026-03-30 18:26:11'),
+(4, 'zzzzzzzzzzzzzzzzz', 'zzzzzzzzzzzzzzzzzzzzzzzzzzz', '1774628417_Group 1.png', 'Crime Alert', 5, 'police', 'ram', 1, 1, '2026-03-27 21:50:17', '2026-03-27 21:50:17'),
+(5, 'dddddddddddddddddd', 'ddddddddddddddddddddddddddddddddddd', '1774628505_goku4.jpg', 'Notice', 1, 'admin', 'Admin', NULL, 1, '2026-03-27 21:51:45', '2026-03-27 21:51:45'),
+(6, 'asdfjklm', 'zxcvbnnmm,', '1774875093_home.jpg', 'Crime Alert', 4, 'police', 'Syed Sameer s', 1, 1, '2026-03-30 18:21:33', '2026-03-30 18:21:33');
 
 -- --------------------------------------------------------
 
@@ -163,7 +218,8 @@ CREATE TABLE `tbl_police` (
 --
 
 INSERT INTO `tbl_police` (`id`, `PoliceStationID`, `PoliceID`, `Name`, `Email`, `MobileNumber`, `Address`, `Password`, `Status`, `CreationDate`) VALUES
-(4, 1, 'CNTD02', 'Syed Sameer s', 'syedsameers2007@gmail.com', '09448927651', 'Main Road Near Bus Stand Gyarej Camp Singanamane Bhadra Reservoir Project Bhadravati Shivamogga\r\nGyarej Camp', '81dc9bdb52d04dc20036dbd8313ed055', 1, '2026-03-07 03:42:32');
+(4, 1, 'CNTD02', 'Syed Sameer s', 'syedsameers2007@gmail.com', '09448927651', 'Main Road Near Bus Stand Gyarej Camp Singanamane Bhadra Reservoir Project Bhadravati Shivamogga\r\nGyarej Camp', '81dc9bdb52d04dc20036dbd8313ed055', 1, '2026-03-07 03:42:32'),
+(5, 1, 'CNTD01', 'ram', 'ram234@gmail.com', '09448927651', 'Main Road Near Bus Stand Gyarej Camp Singanamane Bhadra Reservoir Project Bhadravati Shivamogga\r\nGyarej Camp', 'f925916e2754e5e03f75dd58a5733251', 1, '2026-03-27 14:27:21');
 
 -- --------------------------------------------------------
 
@@ -183,7 +239,7 @@ CREATE TABLE `tbl_policestation` (
 --
 
 INSERT INTO `tbl_policestation` (`id`, `PoliceStationName`, `PoliceStationCode`, `CreationDate`) VALUES
-(1, 'Central Delhi Police Stations', 'CDP501', '2026-03-06 14:28:04'),
+(1, 'Central Delhi Police Stations', 'CDP502', '2026-03-06 14:28:04'),
 (2, 'Laxmi Nagar East Delhi Police Stations', 'LND09', '2026-03-06 14:28:04'),
 (3, 'Rajeev Chowk Police Station New Delhi', 'RCPSD212', '2026-03-06 14:28:04');
 
@@ -214,6 +270,20 @@ INSERT INTO `tbl_user` (`id`, `FullName`, `Email`, `MobileNumber`, `Password`, `
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `daily_news`
+--
+ALTER TABLE `daily_news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_news_active` (`is_active`),
+  ADD KEY `idx_news_created` (`created_at`);
 
 --
 -- Indexes for table `tbl_admin`
@@ -268,6 +338,18 @@ ALTER TABLE `tbl_user`
 --
 
 --
+-- AUTO_INCREMENT for table `daily_news`
+--
+ALTER TABLE `daily_news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
@@ -301,7 +383,7 @@ ALTER TABLE `tbl_fir`
 -- AUTO_INCREMENT for table `tbl_police`
 --
 ALTER TABLE `tbl_police`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_policestation`
