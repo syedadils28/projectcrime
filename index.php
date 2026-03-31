@@ -438,32 +438,33 @@
       <h2 class="heading">Our <span>Team</span></h2>
 
       <div class="team-container">
+       
+
         <div class="team-box">
-          <img src="path/to/syed-sameer-photo.jpg" alt="Syed Sameer S">
+          <img src="./source/img/theam/athif.jpeg" alt="Khazi Abdul Athif">
+          <h3>Khazi Abdul Athifulla</h3>
+          <p>
+            563CS23018 <br/>
+            khaziatifulla@gmail.com
+          </p>
+        </div>
+
+         <div class="team-box">
+          <img src="./source/img/theam/sameer.jpeg" alt="Syed Sameer S">
           <h3>Syed Sameer S</h3>
           <p>
-            Syed Sameer S is a skilled web developer with expertise in front-end technologies.
-            He specializes in creating responsive and user-friendly websites, bringing innovative ideas to life through
-            code.
+            563CS23044 <br/>
+            syedsameers2007@gmail.com
+
           </p>
         </div>
 
         <div class="team-box">
-          <img src="path/to/khazi-abdul-athif-photo.jpg" alt="Khazi Abdul Athif">
-          <h3>Khazi Abdul Athif</h3>
-          <p>
-            Khazi Abdul Athif is a talented UI/UX designer proficient in tools like Figma and CorelDRAW.
-            He designs modern interfaces and branding solutions, transforming concepts into interactive digital
-            experiences.
-          </p>
-        </div>
-
-        <div class="team-box">
-          <img src="path/to/umar-farooq-photo.jpg" alt="Umar Farooq">
+          <img src="./source/img/theam/umar.jpeg" alt="Umar Farooq">
           <h3>Umar Farooq</h3>
           <p>
-            Umar Farooq is a versatile developer focused on full-stack solutions.
-            He excels in building dynamic web applications and ensuring seamless user experiences across platforms.
+            563CS24704
+            umarfarooqkhan078@gmail.com
           </p>
         </div>
       </div>
